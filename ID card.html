@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Matru Vandan Charitable Society</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">Matru Vandan</div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="donate.html" class="donate-btn">Donate</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <button class="lang-toggle">EN/HI</button>
+
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<section class="id-section">
+  <h2>Generate Member ID Card</h2>
+
+  <div class="form">
+    <input type="text" id="name" placeholder="Member Name">
+    <input type="text" id="role" placeholder="Role">
+    <button onclick="generateID()">Generate ID</button>
+  </div>
+
+  <div class="id-card" id="idCard" style="display:none;">
+    <div class="card-header">
+      <h3>Matru Vandan Charitable Society</h3>
+    </div>
+
+    <div class="card-body">
+      <div class="member-info">
+        <h4 id="memberName"></h4>
+        <p id="memberRole"></p>
+        <p>ID: <span id="memberID"></span></p>
+      </div>
+
+      <div id="qrcode"></div>
+    </div>
+  </div>
+</section>
+
+<!-- QR Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
