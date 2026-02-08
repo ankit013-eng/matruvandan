@@ -1,0 +1,401 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --primary: #0f5132;
+  --secondary: #28a745;
+  --accent: #ffc107;
+  --light: #f4f7f4;
+  --dark: #89b368;
+  --text: #333;
+  --white: #fff;
+  --dark-bg: #1a1a1a;
+  --light-bg: #f8f9fa;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= NAVBAR ================= */
+/* ================= NAVBAR ================= */
+/* ================= GLASS NAVBAR ================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(8, 8, 8, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(16, 223, 68, 0.2);
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  display: flex;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: bolder;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: #b9b07a;
+}
+
+
+
+/* Language button */
+.lang-toggle {
+  background: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  display: block;
+  border-radius: 3px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    width: 220px;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links a {
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .lang-toggle {
+    display: none;
+  }
+}
+
+
+/* .donate-btn:hover {
+  background: #575655;
+} */
+
+
+/* ================= HERO ================= */
+.hero {
+  height: 85vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('/images/plant1.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgb(218, 224, 219);
+  padding: 80px 0;
+  min-height: 600px;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.hero h1 {  
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+/* ================= BUTTON ================= */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+opacity: 0.8;
+cursor: pointer;
+
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: relative(2.5rem);
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.section p {
+  max-width: 700px;
+  margin: auto;
+  color: #0a0a0a;
+}
+
+
+
+.card-grid {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--white);
+  padding: 30px 20px;
+  width: 280px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  transition: 0.4s;
+  position: relative;
+  display: grid;
+/* grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: auto;
+gap: 20px; */
+
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  top: 0;
+  left: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  margin: 15px 0;
+  color: var(--primary);
+}
+.card img {
+  width: 100%;        /* image fits inside card width */
+  height: 180px;      /* fixed height */
+  object-fit: cover;  /* crops image nicely */
+  border-radius: 10px;
+}
+
+
+/* ================= GALLERY ================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= STATS ================= */
+.stats {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  text-align: center;
+  margin: 15px;
+}
+
+.stat h3 {
+  font-size: 2.5rem;
+}
+
+/* ================= FORMS ================= */
+.form-container {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: left;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.form-container input,
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+}
+
+/* ================= DONATION SECTION ================= */
+.donate-section {
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  color: var(--white);
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.donate-section h2 {
+  margin-bottom: 15px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: var(--dark);
+  color: var(--white);
+  text-align: center;
+  padding: 25px;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+}
