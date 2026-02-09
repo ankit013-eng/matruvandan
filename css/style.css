@@ -72,7 +72,7 @@ body {
 
 .nav-links a {
   display: flex;
-  color: var(--text-dark);
+  color: var(--white);
   text-decoration: none;
   font-weight: bolder;
   transition: var(--transition);
@@ -81,6 +81,43 @@ body {
 .nav-links a:hover {
   color: #b9b07a;
 }
+
+/* Global image fix */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: row;
+    padding: 10px 15px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 100px 20px 60px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 
 
 
