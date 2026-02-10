@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary: #235f43;
-  --secondary: #4dc76a;
+  --primary: #2d3832;
+  --secondary: rgb(65, 158, 93);
   --accent: #ffc107;
   --light: #f4f7f4;
   /* --dark: #89b368; */
@@ -60,8 +60,9 @@ body {
 .logo {
   display: flex;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: bolder;
   color: rgb(212, 77, 77);
+  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
 /* Nav links */
@@ -261,27 +262,27 @@ img {
   color: white;
 }
 
-/* Decorative floating shapes */
+/* Floating glow circles */
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  width: 250px;
-  height: 250px;
-  background: rgba(255, 255, 255, 0.08);
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
   border-radius: 50%;
-  filter: blur(40px);
+  filter: blur(50px);
   animation: float 8s infinite ease-in-out;
 }
 
 .hero::before {
-  top: 10%;
-  left: 5%;
+  top: 8%;
+  left: 6%;
 }
 
 .hero::after {
-  bottom: 10%;
-  right: 5%;
+  bottom: 8%;
+  right: 6%;
   animation-delay: 3s;
 }
 
@@ -292,23 +293,34 @@ img {
   100% { transform: translateY(0px); }
 }
 
-/* HERO CONTENT */
+/* HERO CONTENT GLASS CARD */
 .hero-content {
-  max-width: 800px;
+  max-width: 750px;
+  padding: 40px 30px;
+  border-radius: 20px;
+
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   z-index: 2;
 }
 
+/* Heading */
 .hero h1 {
   font-size: 3.2rem;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
   text-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
+/* Subtext */
 .hero p {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #f0f0f0;
+  color: #f1f1f1;
+  line-height: 1.6;
 }
 
 /* CTA BUTTONS */
@@ -319,27 +331,28 @@ img {
   flex-wrap: wrap;
 }
 
-
-
-
+/* Buttons */
 .btn {
-  padding: 12px 25px;
-  border-radius: 30px;
+  padding: 13px 28px;
+  border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
+  position: relative;
 }
 
+/* Primary */
 .btn-primary {
-  background: #ffcc00;
+  background: linear-gradient(135deg, #ffcc00, #ffdb4d);
   color: #333;
+  box-shadow: 0 10px 25px rgba(255,204,0,0.4);
 }
 
 .btn-primary:hover {
-  background: #ffd633;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.03);
 }
 
+/* Outline */
 .btn-outline {
   border: 2px solid white;
   color: white;
@@ -349,6 +362,7 @@ img {
   background: white;
   color: #2e7d32;
 }
+
 
 /* ================= BUTTON ================= */
 
