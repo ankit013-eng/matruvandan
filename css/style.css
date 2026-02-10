@@ -6,14 +6,14 @@
   --secondary: #4dc76a;
   --accent: #ffc107;
   --light: #f4f7f4;
-  --dark: #89b368;
+  /* --dark: #89b368; */
   --text: #333;
   --white: #fff;
   --dark-bg: #1a1a1a;
   --light-bg: #f8f9fa;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
-  --background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  --background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -49,11 +49,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 40px;
-  background: rgba(8, 8, 8, 0.15);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(16, 223, 68, 0.2);
+  border-bottom: 1px solid rgba(74, 97, 79, 0.2);
 }
 
 /* Logo */
@@ -61,7 +61,7 @@ body {
   display: flex;
   font-size: 30px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
+  color: rgb(212, 77, 77);
 }
 
 /* Nav links */
@@ -225,6 +225,13 @@ img {
   margin-top: 15px;
 }
 
+@media (max-width: 900px) {
+  .left-announcement {
+    display: none;
+  }
+}
+
+
 
 /* .donate-btn:hover {
   background: #575655;
@@ -233,38 +240,114 @@ img {
 
 /* ================= HERO ================= */
 .hero {
-  height: 85vh;
-  background: linear-gradient(135deg, hsl(300, 7%, 27%) 0%, #44d427 100%);
-  background-size: cover;
-  color: white;
-  background-position: center;
+  position: relative;
+  height: 90vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: rgb(218, 224, 219);
-  padding: 80px 0;
-  min-height: 500px;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    pointer-events: none;
+  padding: 80px 20px;
+  overflow: hidden;
+
+  /* Gradient + background image */
+  background: linear-gradient(
+      rgba(34, 139, 34, 0.75),
+      rgba(60, 179, 113, 0.75)
+    ),
+    url("../images/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
-.hero h1 {  
-  font-size: 3rem;
-  margin-bottom: 15px;
+/* Decorative floating shapes */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  filter: blur(40px);
+  animation: float 8s infinite ease-in-out;
+}
+
+.hero::before {
+  top: 10%;
+  left: 5%;
+}
+
+.hero::after {
+  bottom: 10%;
+  right: 5%;
+  animation-delay: 3s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+  100% { transform: translateY(0px); }
+}
+
+/* HERO CONTENT */
+.hero-content {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
 .hero p {
-  font-size: 1.2rem;
-  margin-bottom: 25px;
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+}
+
+/* CTA BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn-primary {
+  background: #ffcc00;
+  color: #333;
+}
+
+.btn-primary:hover {
+  background: #ffd633;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: #2e7d32;
 }
 
 /* ================= BUTTON ================= */
@@ -322,6 +405,55 @@ img {
   border-radius: 2px;
 }
 
+/* ================= IMAGE SCROLL ================= */
+
+.image-scroll-section {
+  padding: 60px 0;
+  background: var(--light);
+  text-align: center;
+}
+
+.image-scroll-section h2 {
+  margin-bottom: 30px;
+}
+
+.image-scroll {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.image-track {
+  display: flex;
+  width: calc(250px * 12);
+  animation: scrollLeft 25s linear infinite;
+}
+
+.image-track img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  margin: 0 10px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+/* Left scrolling animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .image-track img {
+    width: 180px;
+    height: 120px;
+  }
+}
 
 
 
@@ -524,5 +656,72 @@ footer {
 
   .stats {
     flex-direction: column;
+  }
+}
+/* ================= LEFT ANNOUNCEMENT FRAME ================= */
+.left-announcement {
+  position: fixed;
+  top: 120px;
+  left: 15px;
+  width: 260px;
+  height: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.announcement-title {
+  background: var(--primary);
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Scroll container */
+.announcement-box {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Moving text */
+.announcement-track {
+  position: absolute;
+  width: 100%;
+  padding: 15px;
+  animation: scrollText 20s linear infinite;
+}
+
+.announcement-track p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Animation */
+@keyframes scrollText {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+/* Pause on hover */
+.announcement-box:hover .announcement-track {
+  animation-play-state: paused;
+}
+
+/* Mobile hide */
+@media (max-width: 900px) {
+  .left-announcement {
+    display: none;
   }
 }
