@@ -855,7 +855,7 @@ footer {
 } */
 
 /* TYPING TEXT */
-.announcement-track p {
+/* .announcement-track p {
   font-size: 16px;
   line-height: 1.6;
   white-space: nowrap;
@@ -866,13 +866,13 @@ footer {
 }
 
 /* TYPING ANIMATION */
-@keyframes typing {
+/* @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
-}
+} */
 
 /* CURSOR BLINK */
-@keyframes blink {
+/* @keyframes blink {
   50% { border-color: transparent; }
-}
+} */ */
 
