@@ -542,8 +542,10 @@ gap: 20px; */
 .form-container input:focus,
 .form-container textarea:focus {
   outline: none;
-  border-color: /* ================= FINAL MOBILE FIX ================= */
-@media (max-width: 768px) {
+  border-color: #da9f48; /* or your theme color */
+}
+  /* ================= FINAL MOBILE FIX ================= */
+  @media (max-width: 768px) {
 
   /* NAVBAR */
   .navbar {
@@ -654,7 +656,6 @@ gap: 20px; */
   }
 }
 ;
-}
 
 /* ================= DONATION SECTION ================= */
 .donate-section {
@@ -834,16 +835,10 @@ footer {
     height: 110px;
   }
 }
-/* SECTION CONTAINER */
-/* .section {
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+
 /* BOX DESIGN */
-/* .announcement-box {
-  background: #7ca17e;
+.announcement-box {
+  background: #dd8448;
   color: #fff;
   padding: 20px;
   border-radius: 12px;
@@ -852,7 +847,7 @@ footer {
   display: flex;
   justify-content: center;
  
-} */
+}
 
 /* TYPING TEXT */
 /* .announcement-track p {
@@ -862,17 +857,140 @@ footer {
   overflow: hidden;
   border-right: 3px solid #fff;
   width: 0;
-  animation: typing 2s steps(120, end) forwards, blink 0.8s infinite;
-}
-
-/* TYPING ANIMATION */
-/* @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  animation: typing 10s steps(120, end) forwards, blink 0.8s infinite;
 } */
 
-/* CURSOR BLINK */
-/* @keyframes blink {
-  50% { border-color: transparent; }
-} */ */
+/* TYPING ANIMATION */
+@keyframes typing {
+  from { width: ; }
+  to { width: 100%; }
+}
 
+/* CURSOR BLINK */
+@keyframes blink {
+  50% { border-color: transparent; }
+} */
+
+/* ================= TESTIMONIAL SECTION ================= */
+
+.testimonials {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.testimonial {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.testimonial:hover {
+  transform: translateY(-8px);
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+/* ========== TABLET VIEW ========== */
+@media (max-width: 992px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========== MOBILE VIEW ========== */
+@media (max-width: 600px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .testimonial {
+    padding: 20px;
+    margin: 0 10px;
+  }
+}
+
+/* volintier section */
+.volunteer-section {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: white;
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.volunteer-section h2 {
+  margin-bottom: 10px;
+}
+/* newsteller section */
+.newsletter {
+  background: var(--light-bg);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.newsletter form {
+  margin-top: 20px;
+}
+
+.newsletter input {
+  padding: 12px;
+  width: 250px;
+  max-width: 80%;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.newsletter button {
+  margin-top: 10px;
+}
+
+/* scroll */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.donation-box {
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.progress-bar {
+  background: #ddd;
+  height: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #d41d1d, #5dce5d);
+  border-radius: 20px;
+  animation: growBar 5s ease;
+}
+
+@keyframes growBar {
+  from { width: 0; }
+}
