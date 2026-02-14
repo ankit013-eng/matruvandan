@@ -64,8 +64,8 @@ body.dark-mode .navbar {
   display: flex;
   font-size: 30px;
   font-weight: 800;
-  color: rgba(240, 121, 23, 0.9);
-  text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  color: linear-gradient(135deg, #f88334, #42a182);
+  text-shadow: 0 5px 20px rgba(231, 109, 109, 0.4);
   letter-spacing: 1px;
   position: relative;
   animation: logoFadeIn 1.2s ease forwards;
@@ -398,6 +398,7 @@ img {
 .section {
   padding: 80px 20px;
   text-align: center;
+  width: 100%;
 }
 
 .section::before {
@@ -578,24 +579,65 @@ gap: 20px; */
   transform: scale(1.05);
 }
 
-/* ================= STATS ================= */
+/* ================= MODERN IMPACT STATS ================= */
 .stats {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  color: var(--white);
+  background: linear-gradient(135deg, #97c4b1, #598370);
   display: flex;
-  justify-content: space-around;
-  padding: 50px 20px;
+  justify-content: center;
+  gap: 30px;
+  padding: 80px 20px;
   flex-wrap: wrap;
 }
 
-.stat {
+/* Individual cards */
+.stat-box {
+  background: rgba(255, 242, 62, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 35px 30px;
+  width: 220px;
   text-align: center;
-  margin: 15px;
+  color: rgb(10, 10, 10);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.stat h3 {
-  font-size: 2.5rem;
+/* hover effect */
+.stat-box:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
+
+/* numbers */
+.stat-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+/* labels */
+.stat-box p {
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+/* glowing top line */
+.stat-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(90deg, #b6ae84, #6e745d);
+}
+.stat-icon {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
 
 /* ================= FORMS ================= */
 .form-container {
@@ -747,15 +789,141 @@ gap: 20px; */
 .donate-section h2 {
   margin-bottom: 15px;
 }
+/* ================= MODERN NGO FOOTER ================= */
 
-/* ================= FOOTER ================= */
-footer {
-  background: var(--dark);
-  color:rgb(0, 0, 0);
-  text-align: center;
-  padding: 25px;
+.footer {
+  background: #68571e;
+  color: #fff;
+  margin-top: 80px;
+  font-family: 'Poppins', sans-serif;
 }
 
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 40px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #6fdc8c;
+}
+
+.footer-col.contact p {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-col.contact i {
+  margin-right: 8px;
+  color: #6fdc8c;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  background: rgba(192, 143, 53, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #6fdc8c;
+  color: #0f2e1c;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(200, 224, 180, 0.767);
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-links a {
+  margin-left: 20px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #6fdc8c;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .footer-links a {
+    margin: 0 10px;
+  }
+}
 /* ================= WHATSAPP BUTTON ================= */
 .whatsapp {
   position: fixed;
@@ -917,7 +1085,7 @@ footer {
 
 /* BOX DESIGN */
 .announcement-box {
-  background: #dd8448;
+  background: linear-gradient(135deg, #c27474, #807e36);
   color: #fff;
   padding: 20px;
   border-radius: 12px;
@@ -1109,7 +1277,7 @@ footer {
 
 .progress {
   height: 100%;
-  background: linear-gradient(90deg, #df6666, #84e784);
+  background: linear-gradient(90deg, #777676, #000000);
   border-radius: 20px;
   width: 0;
   transition: width 5s ease;
@@ -1125,7 +1293,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #97c4b1, #598370);
+  background: linear-gradient(135deg, #e6eed4, #aaa472);
 }
 
 .donation-box {
@@ -1148,7 +1316,7 @@ footer {
 
 .progress {
   height: 100%;
-  background: linear-gradient(90deg, #df6666, #84e784);
+  background: linear-gradient(90deg, #a39f9f, #000000);
   border-radius: 20px;
   width: 0;
   transition: width 2s ease;
