@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Signup</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<section class="section">
+  <h2>Volunteer Registration</h2>
+
+  <div class="form-container">
+    <form action="save_volunteer.php" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+
+      <select name="interest" required>
+        <option value="">Select Area of Interest</option>
+        <option>Environment</option>
+        <option>Gau Seva</option>
+        <option>Girl Child Welfare</option>
+        <option>Education</option>
+      </select>
+
+      <textarea name="message" placeholder="Why do you want to volunteer?"></textarea>
+
+      <button type="submit" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+  </div>
+</section>
+
+</body>
+</html>

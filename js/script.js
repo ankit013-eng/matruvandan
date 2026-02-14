@@ -43,16 +43,27 @@ function generateID() {
   });
 }
 
+// Scroll animation
+const fadeElements = document.querySelectorAll('.fade-up');
 
-// scroll animation
-const faders = document.querySelectorAll('.fade-up');
+function revealOnScroll() {
+  const triggerBottom = window.innerHeight * 0.85;
 
-window.addEventListener('scroll', () => {
-  faders.forEach(el => {
+  fadeElements.forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
+
+    if (rect.top < triggerBottom) {
       el.classList.add('active');
+
+      // animate progress bar inside this section
+      const progress = el.querySelector('.progress');
+      if (progress && !progress.classList.contains('loaded')) {
+        progress.style.width = progress.dataset.width;
+        progress.classList.add('loaded');
+      }
     }
   });
-});
+}
 
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);

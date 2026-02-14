@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donation Chart</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6f8;
+}
+
+.donation-chart-box {
+  max-width: 600px;
+  margin: 60px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="donation-chart-box">
+  <h3>Donation Progress</hh3>
+  <canvas id="donationChart"></canvas>
+</div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+const ctx = document.getElementById('donationChart');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Goal', 'Collected'],
+    datasets: [{
+      data: [100000, 65000],
+      backgroundColor: ['#d41d1d', '#28a745'],
+      borderRadius: 8,
+      barThickness: 60
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    },
+    scales: {
+      y: { beginAtZero: true }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

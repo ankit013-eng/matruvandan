@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary: #50c05f;
-  --secondary: rgb(102, 204, 102);
+  --primary: #65c559;
+  --secondary: rgb(154, 221, 154);
   --accent: #ffc107;
   --light: #f4f7f4;
   --dark: #89b368;
@@ -12,7 +12,7 @@
   --dark-bg: #1a1a1a;
   --light-bg: #f8f9fa;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --transition: all 0.6s ease;
   --background: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -55,15 +55,76 @@ body {
 
   border-bottom: 1px solid rgba(74, 97, 79, 0.2);
 }
-
+body.dark-mode .navbar {
+    background: #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 /* Logo */
 .logo {
   display: flex;
   font-size: 30px;
-  font-weight: bolder;
-  color: rgb(212, 77, 77);
+  font-weight: 800;
+  color: rgba(240, 121, 23, 0.9);
   text-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  letter-spacing: 1px;
+  position: relative;
+  animation: logoFadeIn 1.2s ease forwards;
 }
+.logo img {
+  height: 45px;
+  width: auto;
+  animation: floatLogo 3s ease-in-out infinite;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+}
+
+/* floating animation */
+@keyframes floatLogo {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* underline animation */
+.logo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #4ecfd8, #b4b657);
+  border-radius: 5px;
+  animation: underlineGrow 5s ease forwards;
+}
+
+/* fade + slide */
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* underline grow */
+@keyframes underlineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.logo:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
 
 /* Nav links */
 .nav-links {
@@ -81,6 +142,16 @@ body {
 
 .nav-links a:hover {
   color: #b9b07a;
+}
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    transition: var(--transition);
 }
 
 /* Global image fix */
@@ -278,10 +349,15 @@ img {
   background: linear-gradient(135deg, #ffcc00, #ffdb4d);
   color: #333;
   box-shadow: 0 10px 25px rgba(255,204,0,0.4);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 16px;
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.03);
+  transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
 }
 
 /* Outline */
@@ -438,7 +514,10 @@ gap: 20px; */
 }
 
 .card:hover {
-  transform: translateY(-10px);
+  /* transform: translateY(-10px); */
+  transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 82, 82, 0.3);
+    border-top: 5px solid var(--primary-color);
 }
 
 .card h3 {
@@ -874,14 +953,17 @@ footer {
 /* ================= TESTIMONIAL SECTION ================= */
 
 .testimonials {
-  max-width: 1100px;
-  margin: auto;
+  /* max-width: 1100px;
+  margin: auto; */
+  
+  padding: 100px 0;
+  background: var(--light-bg);
 }
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   margin-top: 40px;
   justify-content: center;
 }
@@ -892,11 +974,12 @@ footer {
   border-radius: 15px;
   box-shadow: var(--shadow);
   transition: 0.3s;
-  text-align: center;
+  /* text-align: center; */
+  transition: var(--transition);
 }
 
 .testimonial:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
 .testimonial p {
@@ -924,17 +1007,57 @@ footer {
   }
 }
 
-/* volintier section */
+/* ================= CTA VOLUNTEER SECTION ================= */
 .volunteer-section {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 70px 20px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  padding: 100px 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.volunteer-section h2 {
-  margin-bottom: 10px;
+/* Soft glowing circles */
+.volunteer-section::before,
+.volunteer-section::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s infinite ease-in-out;
 }
+
+.volunteer-section::before {
+  top: -60px;
+  left: -60px;
+}
+
+.volunteer-section::after {
+  bottom: -60px;
+  right: -60px;
+  animation-delay: 3s;
+}
+
+/* Inner box */
+.volunteer-box {
+  background: white;
+  color: var(--text);
+  max-width: 650px;
+  margin: auto;
+  padding: 45px 35px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2;
+}
+
+.volunteer-button {
+  margin-top: 20px;
+  display: inline-block;
+}
+
 /* newsteller section */
 .newsletter {
   background: var(--light-bg);
@@ -958,6 +1081,7 @@ footer {
 .newsletter button {
   margin-top: 10px;
 }
+
 
 /* scroll */
 .fade-up {
@@ -986,11 +1110,29 @@ footer {
 
 .progress {
   height: 100%;
-  background: linear-gradient(90deg, #d41d1d, #5dce5d);
+  background: linear-gradient(90deg, #df6666, #84e784);
   border-radius: 20px;
-  animation: growBar 5s ease;
+  width: 0;
+  transition: width 5s ease;
 }
+
 
 @keyframes growBar {
   from { width: 0; }
 }
+/* ================= SCROLL ANIMATION ================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+

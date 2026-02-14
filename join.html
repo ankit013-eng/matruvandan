@@ -29,34 +29,27 @@
     <span></span>
   </div>
 </div>
-<section class="id-section">
-  <h2>Generate Member ID Card</h2>
+<form action="submit_volunteer.php" method="POST" class="volunteer-form">
+  
+  <label>Full Name</label>
+  <input type="text" name="full_name" required>
 
-  <div class="form">
-    <input type="text" id="name" placeholder="Member Name">
-    <input type="text" id="role" placeholder="Role">
-    <button onclick="generateID()">Generate ID</button>
-  </div>
+  <label>Email</label>
+  <input type="email" name="email" required>
 
-  <div class="id-card" id="idCard" style="display:none;">
-    <div class="card-header">
-      <h3>Matru Vandan Charitable Society</h3>
-    </div>
+  <label>Phone</label>
+  <input type="text" name="phone">
 
-    <div class="card-body">
-      <div class="member-info">
-        <h4 id="memberName"></h4>
-        <p id="memberRole"></p>
-        <p>ID: <span id="memberID"></span></p>
-      </div>
+  <label>Message</label>
+  <textarea name="message"></textarea>
 
-      <div id="qrcode"></div>
-    </div>
-  </div>
-</section>
-
-<!-- QR Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 <footer>
   <p>© 2026 Matru Vandan Charitable Society</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/9149261500">💬</a>
+
+</body>
+</html>
