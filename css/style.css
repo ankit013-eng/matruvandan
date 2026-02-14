@@ -98,7 +98,7 @@ body.dark-mode .navbar {
   bottom: -6px;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, #4ecfd8, #b4b657);
+  background: linear-gradient(90deg, #81817d, #0c0c0c);
   border-radius: 5px;
   animation: underlineGrow 5s ease forwards;
 }
@@ -928,7 +928,6 @@ footer {
  
 }
 
-/* TYPING TEXT */
 /* .announcement-track p {
   font-size: 16px;
   line-height: 1.6;
@@ -937,11 +936,11 @@ footer {
   border-right: 3px solid #fff;
   width: 0;
   animation: typing 10s steps(120, end) forwards, blink 0.8s infinite;
-} */
+}  */
 
 /* TYPING ANIMATION */
 @keyframes typing {
-  from { width: ; }
+  from { width: 0; }
   to { width: 100%; }
 }
 
@@ -1120,6 +1119,42 @@ footer {
 @keyframes growBar {
   from { width: 0; }
 }
+/* ================= DONATION SECTION ================= */
+.donation-banner {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #97c4b1, #598370);
+}
+
+.donation-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.progress-bar {
+  background: #ddd;
+  height: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #df6666, #84e784);
+  border-radius: 20px;
+  width: 0;
+  transition: width 2s ease;
+}
+
+
 /* ================= SCROLL ANIMATION ================= */
 .fade-up {
   opacity: 0;

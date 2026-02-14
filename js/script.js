@@ -44,7 +44,13 @@ function generateID() {
 }
 
 // Scroll animation
-const fadeElements = document.querySelectorAll('.fade-up');
+let fadeElements = [];
+
+window.addEventListener('load', () => {
+  fadeElements = document.querySelectorAll('.fade-up');
+  revealOnScroll();
+});
+
 
 function revealOnScroll() {
   const triggerBottom = window.innerHeight * 0.85;
